@@ -15,7 +15,7 @@
 
 ### 2>AJAX技术实践
 
-​	    打开一个网页的不同按钮，界面跳动但总体URL不变，如评论等如一个容器（示例略）
+​	    打开一个网页的不同按钮，界面跳动但总体URL不变，评论等如一个容器（示例略）
 
 
 
@@ -70,3 +70,28 @@ for page in range(1,4):
     single_page_comment(link)
 ```
 
+
+
+## 3.3通过Selenium模拟浏览器抓取
+
+​		在之前的实践中，我们是使用浏览器的<u>检查</u>功能查找源地址（*在页面中可以看到json格式中的超链接） **这种方法显然比较笨拙**
+
+​		于是有另一种方法——**使用浏览器渲染引擎** 过程为：1>打开一个浏览器自动加载网页 2>自动操作浏览器浏览各个网页，抓取数据  **或者认为变成爬取静态网页**
+
+
+
+### 1>Selenium的安装
+
+```powershell
+pip install selenium
+```
+
+​     <u>新版需要再安装geckodriver（Pycharm里直接下载）</u>
+
+```python
+from selenium import webdriver
+driver = webdriver.Firefox()
+driver.get("http://www.github.com/Tianlang-create/")
+```
+
+​      此时直接打开了页面说明安装完成
