@@ -40,7 +40,7 @@ print(r.text)
 
 ```
 
-**步骤四：**从 json数据中提取评论。上述的结果比较杂乱，但是它其实是 json 数据，我们可以使用 json 库解析数据，从中提取我们想要的数据。
+**步骤四**:从 json数据中提取评论。上述的结果比较杂乱，但是它其实是 json 数据，我们可以使用 json 库解析数据，从中提取我们想要的数据。
 
 ```python
 import json
@@ -109,7 +109,8 @@ print (content.text)
 ```
 
 运行上述代码，我们得到的结果是错误：“Message: Unable to locate element:div.reply-content”。这究竟是为什么呢？
-**步骤三：**我们可以在 jupyter 中键入driver.page_source
+
+**步骤三**:我们可以在 jupyter 中键入driver.page_source
 找到为什么没有定位到评论元素，通过排查我们发现，原来代码中的 JavaScript 解析成了一个 iframe，
 
 _<iframe title="livere" scrolling="no”…>也就是说，所有的评论都装在这个框架之中，里面的评论并没有解析出来，所以我们才找不到div.reply-content元素。这时，我们需要加上对 iframe 的解析_
