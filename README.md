@@ -8,7 +8,7 @@
 
 ### 1>针对AJAX技术加载的网页的爬取办法
 
-​		**AJAX*(Asynchronous Java-script And XML)***  是一种异步更新技术，价值在于通过后台与服务器进行少量数据交换可以使网页实现异步更新 
+​		**AJAX(Asynchronous Java-script And XML)**  是一种异步更新技术，价值在于通过后台与服务器进行少量数据交换可以使网页实现异步更新 
 
 * 通过浏览器审查元素解析地址
 * 通过Selenium模拟浏览器抓取 
