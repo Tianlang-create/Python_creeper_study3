@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43d60b29-40c8-4049-ac51-b124cf5cece4" name="更改" comment="提交一">
-      <change afterPath="$PROJECT_DIR$/src/OpenWebTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OpenWeb.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -51,6 +51,7 @@
   "keyToString": {
     "Python.CrabRealLocation.executor": "Run",
     "Python.ImproveMent.executor": "Run",
+    "Python.OpenWeb.executor": "Run",
     "Python.OpenWebTest.executor": "Run",
     "Python.test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -90,7 +91,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732203263094</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="提交一">
+      <option name="closed" value="true" />
+      <created>1732204332239</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732204332239</updated>
+    </task>
+    <task id="LOCAL-00004" summary="提交一">
+      <option name="closed" value="true" />
+      <created>1732204416575</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732204416575</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

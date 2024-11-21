@@ -21,11 +21,11 @@
 
 ## 3.2 解析真实地址抓取
 
-**步骤一：**打开“检查”功能。用Chrome浏览器打开“Hello World”文章。右键页面任意位置，在弹出的对话框中，点击“检查”选项。得到如下图所示的对话框。
+**步骤一**:打开“检查”功能。用Chrome浏览器打开“Hello World”文章。右键页面任意位置，在弹出的对话框中，点击“检查”选项。得到如下图所示的对话框。
 
-**步骤二：**找到真实的数据地址。点击对话框中的Network，然后刷新网页。此时，Network 会显示浏览器从网页服务器中得到的所有文件，一般这个过程称之为“抓包”。因为所有文件已经显示出来，所以我们需要的评论数据一定在其中。
+**步骤二**:找到真实的数据地址。点击对话框中的Network，然后刷新网页。此时，Network 会显示浏览器从网页服务器中得到的所有文件，一般这个过程称之为“抓包”。因为所有文件已经显示出来，所以我们需要的评论数据一定在其中。
 
-**步骤三：**爬取真实评论数据地址。既然找到了真实的地址，我们就可以直接用requests请求这个地址，获取数据。
+**步骤三**：爬取真实评论数据地址。既然找到了真实的地址，我们就可以直接用requests请求这个地址，获取数据。
 
 ```python
 import requests
@@ -95,3 +95,30 @@ driver.get("http://www.github.com/Tianlang-create/")
 ```
 
 ​      此时直接打开了页面说明安装完成
+
+### 2> Selenium的实践案例
+
+**步骤一**:找到评论的HTML代码标签。使用Chrome打开该文章页面，右键点击页面，打开“检查”选项。按照第二章的方法，定位到评论数据。
+
+ **步骤二**:尝试获取一条评论数据。在原来打开页面的代码数据上，我们可以使用以下代码，获取第一条评论数据。在下面代码中，driver.find_element_by_css_selector是用CSS选择器查找元素，找到class为’reply-content’的div元素；find_element_by_tag_name则是通过元素的tag去寻找——意思是找到comment中的p元素。最后，再输出p元素中的text文本。
+
+```python
+comment = driver.find_element_by_css_selector('div.reply-content')
+content = comment.find_element_by_tag_name('p')
+print (content.text)
+```
+
+运行上述代码，我们得到的结果是错误：“Message: Unable to locate element:div.reply-content”。这究竟是为什么呢？
+**步骤三：**我们可以在 jupyter 中键入driver.page_source
+找到为什么没有定位到评论元素，通过排查我们发现，原来代码中的 JavaScript 解析成了一个 iframe，
+
+_<iframe title="livere" scrolling="no”…>也就是说，所有的评论都装在这个框架之中，里面的评论并没有解析出来，所以我们才找不到div.reply-content元素。这时，我们需要加上对 iframe 的解析_
+
+```python
+driver.switch_to.frame(driver.find_element_by_css_selector("iframe[title='livere']"))
+comment = driver.find_element_by_css_selector('div.reply-content')
+content = comment.find_element_by_tag_name('p')
+print (content.text)
+```
+
+运行上述代码，我们可以得到最上面的一条评论：“第21条测试评论”。
